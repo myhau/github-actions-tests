@@ -35,6 +35,6 @@ jobs:
         run: |
           exit 1
       - name: if failure
-        if: steps.whatever.outcome == 'failure'
+        if: ${{ failure() && steps.run-tests.outcome == 'failure' }}
         run: echo "FAILED!"
           
